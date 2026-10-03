@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Expert Test Round: Round 2</title>
+<meta name="description" content="Round 2 of the expert test round: the manufacturer's answers come back, the same 30 questions are rerun, and a dealer launch sheet is built from the approved answers. Synthetic data.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="round-2">
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">
+      <span class="badge badge-synthetic">Synthetic data</span>
+      <span class="muted">Simulated manufacturer reply. No model runs on this page.</span>
+    </div>
+    <h1>Expert Test Round: Round 2</h1>
+    <p class="lede">The manufacturer answered the docs ask from round 1. The fixes went in and the same 30 questions were rerun. Part B turns the approved answers into a one-page sheet for onboarding dealers.</p>
+    <nav class="pagenav" aria-label="Pages"><a href="index.html">Back to round 1</a></nav>
+  </header>
+
+  <section class="result" aria-live="polite">
+    <p class="result-label">Result</p>
+    <p id="headline" class="headline"></p>
+  </section>
+
+  <h2 class="part">Part A: Round 2</h2>
+
+  <section aria-labelledby="reply-h">
+    <h2 id="reply-h">What came back</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>From the manufacturer</h3>
+        <p id="reply-charger"></p>
+        <h4>Part numbers</h4>
+        <ul id="reply-parts" class="plain"></ul>
+      </div>
+      <div class="card">
+        <h3>From the applications engineer</h3>
+        <h4>Coverage rule</h4>
+        <p id="rule-coverage"></p>
+        <h4>Runtime rule</h4>
+        <p id="rule-runtime"></p>
+      </div>
+      <div class="card">
+        <h3>Fixed by the strategist</h3>
+        <ul id="strategist-fixes" class="plain"></ul>
+      </div>
+      <div class="card">
+        <h3>Still open</h3>
+        <ul id="still-open" class="plain"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="gates2-h">
+    <h2 id="gates2-h">Go-live gates, round 1 and round 2</h2>
+    <div class="table-wrap">
+      <table class="gtable stack pair">
+        <thead><tr><th scope="col">Gate</th><th scope="col">Round 1</th><th scope="col">Round 2</th></tr></thead>
+        <tbody id="gates-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="ba-h">
+    <div class="section-head">
+      <h2 id="ba-h">Before and after: the same 30 questions</h2>
+      <div class="seg" role="group" aria-label="Rows to show">
+        <button type="button" class="seg-btn" id="show-misses" aria-pressed="true">Round 1 misses</button>
+        <button type="button" class="seg-btn" id="show-all" aria-pressed="false">All 30</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="qtable stack pair">
+        <thead><tr><th scope="col">Question</th><th scope="col">Round 1</th><th scope="col">Round 2</th><th scope="col">What changed</th></tr></thead>
+        <tbody id="ba-body"></tbody>
+      </table>
+    </div>
+    <p id="ba-count" class="muted small"></p>
+  </section>
+
+  <section aria-labelledby="calc-h">
+    <h2 id="calc-h">The two rules as calculator inputs</h2>
+    <p class="muted small">This is how the sizing answers are now worked out. Change the inputs to see the rule applied to any model.</p>
+    <div class="card calc">
+      <div class="calc-inputs">
+        <label>Model <select id="c-model"></select></label>
+        <label>Shift length (hours) <input id="c-shift" type="number" min="1" max="24" step="0.5" value="8" inputmode="decimal"></label>
+        <label>Brush pressure
+          <select id="c-pressure">
+            <option value="normal">Normal</option>
+            <option value="heavy">Heavy</option>
+          </select>
+        </label>
+      </div>
+      <dl id="c-out" class="calc-out"></dl>
+      <p id="c-sentence" class="calc-sentence"></p>
+    </div>
+  </section>
+
+  <h2 class="part">Part B: Dealer launch sheet</h2>
+
+  <section aria-labelledby="sheet-h">
+    <article class="sheet" aria-labelledby="sheet-h">
+      <header class="sheet-head">
+        <p class="sheet-kicker">Sample Floorcare Co. (synthetic) &middot; Dealer guide</p>
+        <h2 id="sheet-h">Using the product question assistant</h2>
+        <p id="sheet-status" class="sheet-status"></p>
+      </header>
+      <div class="sheet-body">
+        <section>
+          <h3>What you can ask it</h3>
+          <p class="small">Every example below passed the manufacturer's expert review.</p>
+          <div id="sheet-examples" class="sheet-examples"></div>
+        </section>
+        <section>
+          <h3>What it hands to a person</h3>
+          <ul id="sheet-handoff"></ul>
+          <p class="small">Examples from the test set: <span id="sheet-handoff-ex"></span></p>
+        </section>
+        <section>
+          <h3>How to report a wrong answer</h3>
+          <ol id="sheet-report"></ol>
+        </section>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="assume2-h">
+    <h2 id="assume2-h">Assumptions for round 2</h2>
+    <div class="card note">
+      <ul>
+        <li>The manufacturer's reply is simulated. The charger manual, both part-number decisions and both rules are invented.</li>
+        <li>The 0.65 efficiency factor and the 0.85 and 0.70 runtime figures are example values standing in for the applications engineer's real rules.</li>
+        <li>Round 2 answers are pre-written synthetic text, like round 1. No model runs on this page.</li>
+        <li>The dealer sheet lists only questions that passed expert review, and it stays a draft until every gate is met.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Built by Dakshit Raj with Claude Code and Codex. Synthetic data; no model runs on this page.</p>
+  </footer>
+</div>
+
+<script src="data.js"></script>
+<script src="logic.mjs"></script>
+<script src="app.js"></script>
+</body>
+</html>

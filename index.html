@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Expert Test Round</title>
+<meta name="description" content="A pre-launch test round for a product-question agent: 30 expert questions, every miss sorted to the person who can fix it, and four go-live gates. Synthetic data.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="round-1">
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">
+      <span class="badge badge-synthetic">Synthetic data</span>
+      <span class="muted">Invented manufacturer, documents and answers. No model runs on this page.</span>
+    </div>
+    <h1>Expert Test Round</h1>
+    <p class="lede">An agent has been set up on one floor-scrubber manufacturer's documents. Before launch, three of the manufacturer's experts asked it 30 real-world questions and marked each draft answer. This page sorts every miss to the person who can fix it and checks the go-live gates.</p>
+    <nav class="pagenav" aria-label="Pages">
+      <a href="round-2.html" id="round2-link" hidden>Round 2 and the dealer launch sheet</a>
+    </nav>
+  </header>
+
+  <section class="result" aria-live="polite">
+    <p class="result-label">Result</p>
+    <p id="headline" class="headline"></p>
+  </section>
+
+  <section aria-labelledby="summary-h">
+    <h2 id="summary-h">Summary</h2>
+    <div id="summary" class="stats"></div>
+    <h3 class="subhead">Go-live gates</h3>
+    <ol id="gates" class="gates"></ol>
+  </section>
+
+  <section aria-labelledby="items-h">
+    <div class="section-head">
+      <h2 id="items-h">Open items by owner</h2>
+      <button type="button" id="clear-marks" class="btn btn-quiet">Clear marks</button>
+    </div>
+    <p class="muted small">Mark an item resolved to see how the gates change. A resolved item counts as passing until the next round reruns its questions.</p>
+    <div id="items" class="owner-cols"></div>
+  </section>
+
+  <section aria-labelledby="ask-h">
+    <h2 id="ask-h">Docs ask for the manufacturer</h2>
+    <p class="muted small">One grouped message to the manufacturer's champion, written from whatever is still open on their side.</p>
+    <div class="card ask">
+      <textarea id="docs-ask" readonly rows="16" aria-label="Docs ask message"></textarea>
+      <div class="ask-actions">
+        <button type="button" id="copy-ask" class="btn">Copy message</button>
+        <span id="copy-status" class="muted small" role="status"></span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="q-h">
+    <h2 id="q-h">All 30 questions</h2>
+    <div class="filters" role="group" aria-label="Filter questions">
+      <label>Expert
+        <select id="f-expert"><option value="all">All experts</option></select>
+      </label>
+      <label>Type
+        <select id="f-type"><option value="all">All types</option></select>
+      </label>
+      <label>Status
+        <select id="f-status">
+          <option value="all">All</option>
+          <option value="pass">Pass</option>
+          <option value="blocked">Blocked</option>
+        </select>
+      </label>
+      <span id="f-count" class="muted small"></span>
+    </div>
+    <div class="table-wrap">
+      <table class="qtable qcards">
+        <thead>
+          <tr><th scope="col">ID</th><th scope="col">Asked by</th><th scope="col">Type</th><th scope="col">Question</th><th scope="col">Verdict</th></tr>
+        </thead>
+        <tbody id="q-body"></tbody>
+      </table>
+    </div>
+    <p class="muted small">Select a row to see the draft answer, its citation, the expert's note and the rule applied. The same 30 questions are rerun after each round of fixes, so a fix that breaks another answer shows up.</p>
+  </section>
+
+  <section aria-labelledby="rules-h">
+    <h2 id="rules-h">The fixed rules</h2>
+    <p class="muted small">Written down before the round ran. Each kind of miss goes to one fix and one owner.</p>
+    <div class="table-wrap">
+      <table class="rtable stack">
+        <thead><tr><th scope="col">Miss</th><th scope="col">When</th><th scope="col">Fix</th><th scope="col">Owner</th></tr></thead>
+        <tbody id="rules-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="src-h">
+    <h2 id="src-h">Documents the agent was set up on</h2>
+    <ul id="sources" class="sources"></ul>
+  </section>
+
+  <section aria-labelledby="assume-h">
+    <h2 id="assume-h">Assumptions</h2>
+    <div class="card note">
+      <ul>
+        <li>Pass means the expert accepted the answer as written. A warranty or safety question only passes when the agent hands it to a person.</li>
+        <li>The agent's answers are pre-written synthetic text. No model runs on this page.</li>
+        <li>The manufacturer, models, part numbers, prices, documents and expert notes are invented.</li>
+        <li>The 90% bar for each expert is an assumption, not a known standard.</li>
+        <li>Due dates are assumptions, counted in days after the test round.</li>
+        <li>Marking an item resolved counts its questions as passing until the next round reruns them. Marks are kept only in your own browser.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="learn-h">
+    <h2 id="learn-h">What I'd need to learn</h2>
+    <ol class="learn">
+      <li>How do a manufacturer's experts send test questions today, and who on their side signs off on launch?</li>
+      <li>When the parts list and the price book disagree, who decides which is current?</li>
+      <li>Is the launch bar a pass rate, a set of must-pass questions, or the expert's call?</li>
+      <li>Which misses get fixed through configuration, and which go to engineering?</li>
+    </ol>
+  </section>
+
+  <footer class="foot">
+    <p>Built by Dakshit Raj with Claude Code and Codex. Synthetic data; no model runs on this page.</p>
+  </footer>
+</div>
+
+<script src="data.js"></script>
+<script src="logic.mjs"></script>
+<script src="app.js"></script>
+</body>
+</html>
