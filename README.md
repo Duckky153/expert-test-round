@@ -20,7 +20,7 @@ All data is synthetic. The answers are pre-written. No model runs on the page.
 - Part A, Round 2: the simulated reply (charger manual arrives, one part number confirmed each way, two rules from the applications engineer), the gates for both rounds side by side, a before-and-after table of the same 30 questions, and a small calculator that applies the two new rules to any model. Result: 28 of 30 pass; the warranty escalation rule and the manual page offset are still open.
 - Part B, Dealer launch sheet: a one-page guide built only from questions that passed. What you can ask it, what it hands to a person, and how to report a wrong answer. It stays marked as a draft until every gate is met.
 
-`index.html` carries a link to `round-2.html` (`id="round2-link"`) that starts hidden. Remove its `hidden` attribute to show it.
+`index.html` carries a link to `round-2.html` (`id="round2-link"`) that starts hidden. Remove its `hidden` attribute to show it. The live second page is at https://duckky153.github.io/expert-test-round/round-2.html.
 
 ## How it works, one sentence per rule
 
